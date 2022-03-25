@@ -1,5 +1,7 @@
 # Snippets
 
+[![Generate Documentation](https://github.com/jimbrig/Snippets/actions/workflows/document.yml/badge.svg)](https://github.com/jimbrig/Snippets/actions/workflows/document.yml)
+
 Various Code Snippets I have stashed away for reference and other's to use.
 
 ## See Also
