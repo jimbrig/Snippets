@@ -27,6 +27,7 @@ jobs:
           
   git-cliff:
     name: Generate Changelog
+    needs: index
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
