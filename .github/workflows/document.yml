@@ -7,26 +7,20 @@ on:
   repository_dispatch:
 
 jobs:
-  index:
-    name: Generate Directory Indices
+  documentation:
+    name: Generate Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
+    
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      
+      - name: Directory Indices 
+        uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
         with: 
           folder: ${{github.workspace}}
-          
-  git-cliff:
-    name: Generate Changelog
-    needs: index
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
+      
       - name: Generate a changelog
         uses: orhun/git-cliff-action@v1
         id: git-cliff
@@ -38,15 +32,12 @@ jobs:
 
       - name: Print the changelog
         run: cat "${{ steps.git-cliff.outputs.changelog }}"
-
-  commit:
-    name: Commit and Push Changes
-    needs: [index, git-cliff]
-    runs-on: ubuntu-latest
-    steps:
+        
       - name: Commit and Push Changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          folder: ${{github.workspace}}
+    
     
     
