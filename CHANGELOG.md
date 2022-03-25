@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Initialize README
 - Add See Also section to README
 - Add README placeholders for each directory
+- Add workflow badge
 
 ### Features
 
@@ -34,6 +35,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-03-25T00:47:03Z
 - Autopublish 2022-03-25T00:47:33Z
 - Autopublish 2022-03-25T00:58:31Z
+- Autopublish 2022-03-25T01:02:00Z
 
 ### Auto
 
