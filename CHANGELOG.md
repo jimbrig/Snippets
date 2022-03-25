@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Add ~15 new VBA enhancements and snippets
 - Add github action to auto-generate directory indices
 - Remove old index files
+- Make git-cliff GHA depend on index GHA
 
 ### Miscellaneous Tasks
 
@@ -36,9 +37,11 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-03-25T00:47:33Z
 - Autopublish 2022-03-25T00:58:31Z
 - Autopublish 2022-03-25T01:02:00Z
+- Autopublish 2022-03-25T01:02:57Z
 
 ### Auto
 
+- Generated markdown indexes
 - Generated markdown indexes
 - Generated markdown indexes
 
