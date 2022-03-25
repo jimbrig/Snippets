@@ -2,6 +2,12 @@
 
 Various Code Snippets I have stashed away for reference and other's to use.
 
+## See Also
+
+- My [Code Folder](https://publish.obsidian.md/kaas-published/2-Areas/Code/_README) on my personal Knowledge Base Website: [KaaS: Knowledge as a Service](https://publish.obsidian.md/kaas-published/)
+- My [GitHub Gists](https://gist.github.com/jimbrig)
+- My Snippets and Collections on [ThisCodeWorks](https://www.thiscodeworks.com/user/jimbrig)
+
 ## Contents
 
 - [AutoHotKey](AutoHotKey) - AHK Snippets
