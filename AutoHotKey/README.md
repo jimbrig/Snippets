@@ -1,4 +1,0 @@
-# AutoHotKey (AHK) Snippets
-
-
-
