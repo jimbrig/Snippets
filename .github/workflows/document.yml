@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}          
+          token: ${{ secrets.GITHUB_TOKEN }}          
       
       - name: Generate Directory Indices 
         uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
