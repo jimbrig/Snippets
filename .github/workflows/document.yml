@@ -13,22 +13,24 @@ jobs:
     steps:
     
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}          
       
       - name: Generate Directory Indices 
         uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
         with: 
           folder: ${{github.workspace}}
       
-      - name: Commit Indices
-        continue-on-error: true
-        run: |
-          cd ${{github.workspace}}
-          git config --global user.email "jimmy.briggs@jimbrig.com"
-          git config --global user.name "Jimmy Briggs"
-          git add .
-          git commit -m "auto: Generated markdown indexes"
-          git push
+#      - name: Commit Indices
+#        continue-on-error: true
+#        run: |
+#          cd ${{github.workspace}}
+#          git config --global user.email "jimmy.briggs@jimbrig.com"
+#          git config --global user.name "Jimmy Briggs"
+#          git add .
+#          git commit -m "auto: Generated markdown indexes"
+#          git push
       
       - name: Generate Changelog
         uses: orhun/git-cliff-action@v1
