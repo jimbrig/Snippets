@@ -44,10 +44,10 @@ jobs:
         env:
           OUTPUT: CHANGELOG.md
         
-      - name: Commit and Push Changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Commit and Push Changes
+#        uses: actions-js/push@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
       
 #      - name: Commit Indices
 #        continue-on-error: true
