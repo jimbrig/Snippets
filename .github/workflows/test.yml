@@ -1,0 +1,27 @@
+name: live-example
+on:
+  push: [ main ]
+  
+jobs:
+  markdown-index:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+
+      - name: Generate Markdown Index
+        id: markdown-index
+        run: docker run --rm --volume "$(pwd):/data" ghcr.io/mmiranda/markdown-index:latest --output live-example.md
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated markdown-index Documentation
+          file_pattern: "**/*.md"
