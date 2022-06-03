@@ -4,34 +4,34 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-  repository_dispatch:
-
+ 
 jobs:
-  documentation:
-    name: Generate Documentation
+  markdown-index:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+
+      - name: Generate Markdown Index
+        id: markdown-index
+        run: docker run --rm --volume "$(pwd):/data" ghcr.io/mmiranda/markdown-index:latest --output index.md
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated markdown-index Documentation
+          file_pattern: "**/*.md"
+          
+  changelog:
     runs-on: ubuntu-latest
     steps:
-    
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}          
-      
-      - name: Generate Directory Indices 
-        uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
-        with: 
-          folder: ${{github.workspace}}
-      
-#      - name: Commit Indices
-#        continue-on-error: true
-#        run: |
-#          cd ${{github.workspace}}
-#          git config --global user.email "jimmy.briggs@jimbrig.com"
-#          git config --global user.name "Jimmy Briggs"
-#          git add .
-#          git commit -m "auto: Generated markdown indexes"
-#          git push
-      
       - name: Generate Changelog
         uses: orhun/git-cliff-action@v1
         id: git-cliff
@@ -48,6 +48,18 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      
+#      - name: Commit Indices
+#        continue-on-error: true
+#        run: |
+#          cd ${{github.workspace}}
+#          git config --global user.email "jimmy.briggs@jimbrig.com"
+#          git config --global user.name "Jimmy Briggs"
+#          git add .
+#          git commit -m "auto: Generated markdown indexes"
+#          git push
+      
+      
     
     
     
