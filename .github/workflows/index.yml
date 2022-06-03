@@ -11,11 +11,7 @@ jobs:
         with: 
           folder: ${{github.workspace}}
       - name: Commit changes
-        continue-on-error: true
-        run: |
-          cd ${{github.workspace}}
-          git config --global user.email "jimmy.briggs@jimbrig.com"
-          git config --global user.name "Jimmy Briggs"
-          git add *
-          git commit -m "auto: Generated markdown indexes"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated markdown-index Documentation
+          file_pattern: "**/*.md"
