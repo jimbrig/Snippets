@@ -31,6 +31,9 @@ jobs:
           
   changelog:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{github.workspace}}
     steps:
       - name: Generate Changelog
         uses: orhun/git-cliff-action@v1
