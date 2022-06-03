@@ -7,9 +7,9 @@ on:
 jobs:
   markdown-index:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
+    #defaults:
+    #  run:
+    #    working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v2
