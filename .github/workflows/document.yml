@@ -36,10 +36,10 @@ jobs:
         uses: orhun/git-cliff-action@v1
         id: git-cliff
         with:
-          config: ./cliff.toml
+          config: cliff.toml
           args: --verbose
         env:
-          OUTPUT: ./CHANGELOG.md
+          OUTPUT: CHANGELOG.md
 
       - name: Print Changelog
         run: cat "${{ steps.git-cliff.outputs.changelog }}"
